@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+
+<AnchorPane fx:id="mainAnchorPane"
+	onKeyPressed="#handleKeyPressed" maxHeight="1080" maxWidth="1920"
+	minHeight="1080" minWidth="1920" prefHeight="1080" prefWidth="1920"
+	style="-fx-background-color: #FAFFFD"
+	xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="scenes_controller.EditingController">
+	<children>
+		<AnchorPane fx:id="gameCanvasAnchorPane"
+			onMouseClicked="#setGameCanvasAnchorPaneMouseEventHandlers"
+			onMouseDragged="#setGameCanvasAnchorPaneMouseEventHandlers"
+			AnchorPane.bottomAnchor="440" AnchorPane.leftAnchor="0"
+			AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+		</AnchorPane>
+
+		<AnchorPane fx:id="wavePane" maxHeight="500"
+			maxWidth="500" minHeight="500" minWidth="500" prefHeight="500"
+			prefWidth="500" layoutX="5" layoutY="20">
+			<children>
+				<GridPane fx:id="wavesGridPane" prefWidth="450"
+					prefHeight="450" hgap="20" vgap="10">
+					<!-- Qui per ogni ondata del livello, c'è un bottone per selezionara 
+						l'ondata e la lista dei nemici organizzata per tipo -->
+
+					<!--per ultimo qui va messo il bottone per aggiungere una nuova ondata -->
+				</GridPane>
+			</children>
+		</AnchorPane>
+
+		<AnchorPane fx:id="toolBar" prefHeight="216"
+			prefWidth="1080" minWidth="1080" maxWidth="1080" minHeight="216"
+			maxHeight="216" style="-fx-background-color: #342E37"
+			AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0"
+			AnchorPane.rightAnchor="0">
+			<children>
+				<VBox fx:id="menuVBox" layoutX="8.0" layoutY="8.0"
+					prefWidth="384" prefHeight="216" spacing="50.0">
+					<children>
+						<Button fx:id="menuButton" text="MENU" prefHeight="60"
+							prefWidth="150" onAction="#switchToMenuScene"></Button>
+						<Button fx:id="saveButton" text="SAVE" prefHeight="60"
+							prefWidth="150" onAction="#saveOrCreateLevel"></Button>
+					</children>
+				</VBox>
+
+				<HBox fx:id="tilesButtonHBox" spacing="10" layoutX="402"
+					layoutY="8">
+					<!-- Qui verranno inseriti i bottoni delle tile -->
+				</HBox>
+
+				<HBox fx:id="enemiesButtonHBox" spacing="10" layoutX="402"
+					layoutY="104">
+					<!-- Qui verranno inseriti i bottoni dei nemici -->
+
+					<VBox fx:id="waveButtonVBox">
+						<children>
+							<Button fx:id="saveWave" text="SAVE WAVE" prefWidth="150"
+								prefHeight="60" onAction="#saveWave"></Button>
+						</children>
+					</VBox>
+				</HBox>
+			</children>
+		</AnchorPane>
+	</children>
+</AnchorPane>
+
